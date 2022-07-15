@@ -22,11 +22,10 @@ const scrape = async () => {
       "User-Agent": "axios 0.21.1"
     }
   });
-  
+  const handle = setInterval(scrape, 20000);
   //Load up the html
   const $ = cheerio.load(data);
   const item = $("div#dp-container");
-  const handle = setInterval(scrape, 20000);
   //Extract the data that we need
   product.name = $(item).find("h1 span#productTitle").text();
   product.link = url;
@@ -50,6 +49,20 @@ const scrape = async () => {
         clearInterval(handle);
       });
   }
+
+var express = require('express');
+var app = express();
+
+app.set('port', (process.env.PORT || 5000));
+
+app.get('/', function(request, response) {
+    var result = 'App is running'
+    response.send(result);
+}).listen(app.get('port'), function() {
+    console.log('server is listening on port', app.get('port'));
+});
+
+
 } catch (err) {
     console.log(err);
   }
