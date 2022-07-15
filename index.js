@@ -7,7 +7,7 @@ const authToken = process.env.TWILIO_AUTH_TOKEN;
 const client = require("twilio")(accountSid, authToken);
 
 const url =
-  "https://www.amazon.es/HUAWEI-Smartphone-fotograf%C3%ADa-Resoluci%C3%B3n-Supercharge/dp/B09TCPSG7V";
+  "https://www.amazon.es/LEGO-42134-Technic-Megalodon-Construcci%C3%B3n/dp/B09BNXY2T3";
 
 const product = { name: "", price: "", link: "" };
 
@@ -26,7 +26,7 @@ const scrape = async () => {
   //Load up the html
   const $ = cheerio.load(data);
   const item = $("div#dp-container");
-  const handle = setInterval(scrape, 20000);
+  const handle = setInterval(scrape, 900000);
   //Extract the data that we need
   product.name = $(item).find("h1 span#productTitle").text();
   product.link = url;
