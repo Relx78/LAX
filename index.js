@@ -7,7 +7,7 @@ const authToken = process.env.TWILIO_AUTH_TOKEN;
 const client = require("twilio")(accountSid, authToken);
 
 const url =
-  "https://www.amazon.es/LEGO-42134-Technic-Megalodon-Construcci%C3%B3n/dp/B09BNXY2T3";
+  "https://www.amazon.es/Apple-MacBook-16-pulgadas-diez-n%C3%BAcleos-diecis%C3%A9is-n%C3%BAcleos/dp/B09JR31B9R";
 
 const product = { name: "", price: "", link: "" };
 
