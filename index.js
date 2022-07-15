@@ -7,7 +7,7 @@ const authToken = process.env.TWILIO_AUTH_TOKEN;
 const client = require("twilio")(accountSid, authToken);
 
 const url =
-  "https://www.amazon.es/dp/B09NKR6ZML";
+  "https://www.amazon.es/HUAWEI-Smartphone-fotograf%C3%ADa-Resoluci%C3%B3n-Supercharge/dp/B09TCPSG7V";
 
 const product = { name: "", price: "", link: "" };
 
@@ -38,7 +38,7 @@ const scrape = async () => {
   const priceNum = parseInt(price);
   product.price = priceNum;
   //Send an SMS
-  if (priceNum < 5000) {
+  if (priceNum < 50) {
     client.messages
       .create({
         body: `The price of ${product.name} went below ${price}. Purchase it at ${product.link}`,
