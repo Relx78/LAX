@@ -7,7 +7,7 @@ const authToken = process.env.TWILIO_AUTH_TOKEN;
 const client = require("twilio")(accountSid, authToken);
 
 const url =
-  "https://www.amazon.es/kwmobile-Funda-Compatible-Apple-iMac/dp/B094D22QX6";
+  "https://www.amazon.es/dp/B09NKRYWCX";
 
 const product = { name: "", price: "", link: "" };
 
@@ -37,7 +37,6 @@ const scrape = async () => {
     .replace(/[,.]/g, "");
   const priceNum = parseInt(price);
   product.price = priceNum;
-  console.log(product);
   //Send an SMS
   if (priceNum < 5000) {
     client.messages
@@ -51,7 +50,7 @@ const scrape = async () => {
         clearInterval(handle);
       });
   }
-    console.log("received response: ", response.data);
+    console.log("received response: ");
 } catch (err) {
     console.log(err);
   }
