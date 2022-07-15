@@ -26,7 +26,7 @@ const scrape = async () => {
   //Load up the html
   const $ = cheerio.load(data);
   const item = $("div#dp-container");
-  const handle = setInterval(scrape, 900000);
+  const handle = setInterval(scrape, 20000);
   //Extract the data that we need
   product.name = $(item).find("h1 span#productTitle").text();
   product.link = url;
