@@ -1,5 +1,5 @@
 //Packages
-const axios = require("axios");
+const axios = require('axios').default;
 const cheerio = require("cheerio");
 require("dotenv").config();
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
@@ -7,19 +7,26 @@ const authToken = process.env.TWILIO_AUTH_TOKEN;
 const client = require("twilio")(accountSid, authToken);
 
 const url =
-  "https://www.amazon.es/Apple-24-Pulgadas-Ocho-n%C3%BAcleos-Ocho-n%C3%BAcleos-Puertos/dp/B0933725LR";
+  "https://www.amazon.es/Apple-24-Pulgadas-Ocho-n%C3%BAcleos-Ocho-n%C3%BAcleos-Puertos/dp/B09337DBM3";
 
 const product = { name: "", price: "", link: "" };
 
 //Set interval
-const handle = setInterval(scrape, 20000);
 
-async function scrape() {
+const scrape = async () => {
+    try{
   //Fetch the data
-  const { data } = await axios.get(url);
+  const { data } = await axios.get(url, {
+    headers: {
+      Accept: "application/json",
+      "User-Agent": "axios 0.21.1"
+    }
+  });
+  
   //Load up the html
   const $ = cheerio.load(data);
   const item = $("div#dp-container");
+  const handle = setInterval(scrape, 20000);
   //Extract the data that we need
   product.name = $(item).find("h1 span#productTitle").text();
   product.link = url;
@@ -43,6 +50,10 @@ async function scrape() {
         console.log(message);
         clearInterval(handle);
       });
+  }
+    console.log("received response: ", data);
+} catch (err) {
+    console.log(err);
   }
 }
 
