@@ -7,7 +7,7 @@ const authToken = process.env.TWILIO_AUTH_TOKEN;
 const client = require("twilio")(accountSid, authToken);
 
 const url =
-  "https://www.amazon.es/dp/B09NKRYWCX";
+  "https://www.amazon.es/dp/B09NKR6ZML";
 
 const product = { name: "", price: "", link: "" };
 
