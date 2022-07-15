@@ -7,7 +7,7 @@ const authToken = process.env.TWILIO_AUTH_TOKEN;
 const client = require("twilio")(accountSid, authToken);
 
 const url =
-  "https://www.amazon.es/Apple-24-Pulgadas-Ocho-n%C3%BAcleos-Ocho-n%C3%BAcleos-Puertos/dp/B09337DBM3";
+  "https://www.amazon.es/Apple-24-Pulgadas-Ocho-n%C3%BAcleos-Ocho-n%C3%BAcleos-Puertos/dp/B0933725LR";
 
 const product = { name: "", price: "", link: "" };
 
