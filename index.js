@@ -7,7 +7,7 @@ const authToken = process.env.TWILIO_AUTH_TOKEN;
 const client = require("twilio")(accountSid, authToken);
 
 const url =
-  "https://www.amazon.es/Apple-24-Pulgadas-Ocho-n%C3%BAcleos-Ocho-n%C3%BAcleos-Puertos/dp/B09337DBM3";
+  "https://www.amazon.es/kwmobile-Funda-Compatible-Apple-iMac/dp/B094D22QX6";
 
 const product = { name: "", price: "", link: "" };
 
@@ -51,7 +51,7 @@ const scrape = async () => {
         clearInterval(handle);
       });
   }
-    console.log("received response: ", data);
+    console.log("received response: ", response.data);
 } catch (err) {
     console.log(err);
   }
