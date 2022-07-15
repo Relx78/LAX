@@ -50,7 +50,6 @@ const scrape = async () => {
         clearInterval(handle);
       });
   }
-    console.log("received response: ");
 } catch (err) {
     console.log(err);
   }
